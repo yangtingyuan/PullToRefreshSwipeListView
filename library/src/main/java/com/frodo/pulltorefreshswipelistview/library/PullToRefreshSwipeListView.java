@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import com.frodo.pulltorefreshswipelistview.library.internal.EmptyViewMethodAccessor;
 import com.frodo.pulltorefreshswipelistview.library.internal.LoadingLayout;
