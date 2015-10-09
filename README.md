@@ -8,11 +8,15 @@ Android implementing SwipeListView with Pull to Refresh
 
 ## PullToRefresh
 用过PullToRefresh开源库的同学应该非常熟悉内部机制，对于内部加载的真正View是采用泛型来适配的。因此，这里必须关注最外层的事件拦截。首先来看看继承关系（用PullToRefresh来举例）：
+
 ```
 PullToRefreshListView --> PullToRefreshAdapterViewBase<ListView> --> PullToRefreshBase --> LinearLayout
 ```
+
 1、再来看看泛型ListView，需要理解这个ListView是什么时候添加到LinearLayout中的。
+
 2、找泛型建议大家从最顶层找，在PullToRefreshBase<T extends View>中有一个T的变量（T mRefreshableView），从字面都能看出，这就是我们想要的正在加载实际内容的View。
+
 3、如何被添加呢？
 	统一在PullToRefreshBase中内看到一个FrameLayout类型的mRefreshableViewWrapper变量。这就是包装mRefreshableView的外层View，添加代码如下：
 ```
@@ -30,6 +34,7 @@ protected final void addViewInternal(View child, ViewGroup.LayoutParams params) 
 	}
 ```
 因此，这就完成了添加工作。
+
 4、继续看一下addRefreshableView何时被调起的情况：
 ```
 private void init(Context context, AttributeSet attrs) {
@@ -42,6 +47,7 @@ private void init(Context context, AttributeSet attrs) {
 }
 ```
 很明显，通过xml中定义的属性，创建对应的View，并把对应的attrs传入。<strong>这个地方很重要，下面再继续</strong>
+
 5、事件拦截
 熟悉事件拦截机制的同学应该明白，最重要的两个方法就是：
 ```
