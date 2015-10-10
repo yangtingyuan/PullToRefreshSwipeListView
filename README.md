@@ -126,10 +126,10 @@ PullToRefreshBase中定义的AttributeSet将会传递到子类的mRefreshableVie
         />
 ```
 
-## 效果图
-![下拉刷新](https://github.com/frodoking/frodoking.github.io/tree/master/img/github-readme/PullToRefreshSwipeListView_01.png)
+## 效果图 
+![下拉刷新效果图](http://frodoking.github.io/img/github-readme/PullToRefreshSwipeListView_01.png)
 
-![item滑动效果](https://github.com/frodoking/frodoking.github.io/tree/master/img/github-readme/PullToRefreshSwipeListView_02.png)
+![item滑动效果图](http://frodoking.github.io/img/github-readme/PullToRefreshSwipeListView_02.png)
 
 ## 注意 
 本例已经将PullToRefresh和SwipeListView进行了整合。不过相对于原来的PullToRefresh，只是加入了PullToRefreshListView功能。如果你需要其他GridView的额外功能请自行添加。DEMO工程是本工程的sample工程。
